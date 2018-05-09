@@ -44,4 +44,20 @@ contract Greeter {
         return s;
    }
 
+   function strconcat(string _str1, string _str2) public constant returns (string) {
+       bytes memory str_b1 = bytes(_str1);
+       bytes memory str_b2 = bytes(_str2);
+       bytes b;
+       uint j = str_b1.length;
+       for(uint i = 0; i < str_b1.length; i++) {
+           b[i] = str_b1[i];
+       }
+       for(uint k = 0; k < str_b2.length; k++) {
+           b[j] = str_b2[k];
+           j++;
+       }
+       string memory s = string(b);
+       return s;
+   }
+
 }
