@@ -28,4 +28,20 @@ contract Greeter {
             return fib_rev(_num - 1) + fib_rev(_num - 2);
         }
     }
+
+    function xor(string _str1, string _str2) public constant returns (string) {
+        bytes memory b1 = bytes(_str1);
+        bytes memory b2 = bytes(_str2);
+        for(uint i = 0; i < b1.length; i++) {
+            if(b1[i] == b2[i]){
+                b1[i] = 0x30;
+            }
+            else {
+                b1[i] = 0x31;
+            }
+        }
+        string memory s = string(b1);
+        return s;
+   }
+
 }
